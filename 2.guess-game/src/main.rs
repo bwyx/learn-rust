@@ -19,7 +19,10 @@ fn main() {
         // Rust allow shadowing of variables. wow!,
         // for make `cmp` to work, we need to use same type of variable
         // this infer guess to u32 (same as secret_number)
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed: {}", guess);
 
