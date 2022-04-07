@@ -5,10 +5,16 @@ use std::io;
 fn main() {
     println!("Guess the number!");
 
+    let mut chances = 5;
     let secret_number = rand::thread_rng().gen_range(1..101);
 
     loop {
-        println!("Please input your guess.");
+        if chances == 0 {
+            println!("You lost! the number was {}", secret_number);
+            break;
+        }
+
+        println!("Please input your guess. {} chances left.", chances);
 
         let mut guess = String::new();
 
@@ -35,5 +41,7 @@ fn main() {
                 break;
             }
         };
+
+        chances -= 1;
     }
 }
