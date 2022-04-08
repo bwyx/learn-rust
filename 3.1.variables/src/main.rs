@@ -9,6 +9,14 @@ fn main() {
     // shadowing
     // it's fine in rust to shadow a let variable
     let x = x + 1;
+
+    // scope
+    // variables only live for the duration of the block they are declared in
+    {
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {}", x);
+    }
+
     println!("The value of x after shadowing is: {}", x);
 
     // const
