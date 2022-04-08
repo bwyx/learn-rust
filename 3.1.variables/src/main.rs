@@ -3,8 +3,13 @@ fn main() {
     // able to make variable mutable with `mut`
     let mut x = 5;
     println!("The value of x is: {}", x);
-    x = 6;
-    println!("The value of x is: {}", x);
+    x += 1;
+    println!("The value of x after assigment is: {}", x);
+
+    // shadowing
+    // it's fine in rust to shadow a let variable
+    let x = x + 1;
+    println!("The value of x after shadowing is: {}", x);
 
     // const
     // always immutable, can't use `mut` keyword
